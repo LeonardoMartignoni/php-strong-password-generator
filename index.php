@@ -7,11 +7,11 @@
   }
 
   function generatePsw($length) {
-    // $characters = '0123456789qwertyuiopasdfghjklzxcvbnm!"£$%&/()=?-_';
-    $debug = '1';
+    $characters = '0123456789qwertyuiopasdfghjklzxcvbnm!"$%&/()=?-_';
+    // $debug = '1';
     $password = '';
-    while (strlen($password) <= $length) {
-      $password += $debug; // TO FIX
+    while (strlen($password) < $length) {
+      $password .= $characters[rand(0, strlen($characters) - 1)]; // TO FIX
     }
     return $password;
   }
