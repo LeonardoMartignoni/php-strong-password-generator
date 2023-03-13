@@ -1,19 +1,11 @@
 <?php
+  include __DIR__ . '/partials/functions.php';
+
   if(!empty($_GET["psw_length"])) {
     $psw_input = $_GET["psw_length"];
     $psw_result = generatePsw($psw_input);
   }else {
     $psw_input = '';
-  }
-
-  function generatePsw($length) {
-    $characters = '0123456789qwertyuiopasdfghjklzxcvbnm!"$%&/()=?-_';
-    // $debug = '1';
-    $password = '';
-    while (strlen($password) < $length) {
-      $password .= $characters[rand(0, strlen($characters) - 1)]; // TO FIX
-    }
-    return $password;
   }
 ?>
 
@@ -40,7 +32,7 @@
   </form>
 
   <?php if (!empty($psw_result)): ?>
-  <p><?= $psw_result ?></p>
+  <p>Generated password: <?= $psw_result ?></p>
   <?php else: ?>
   <?php endif ?>
 </body>   
